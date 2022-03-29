@@ -9,7 +9,9 @@ public class RequestHeaderParserServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.getWriter().write("Hello");
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write("[\"Hello\"]");
         response.flushBuffer();
     }
 }

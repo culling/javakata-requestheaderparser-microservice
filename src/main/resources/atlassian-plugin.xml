@@ -21,6 +21,6 @@
         <context>requestheaderparser-microservice</context>
     </web-resource>
     <servlet key="requestheaderparser" class="com.geneculling.javakata.servlet.RequestHeaderParserServlet">
-        <url-pattern>/helloworld</url-pattern>
+        <url-pattern>/requestheaderparser/api/whoami</url-pattern>
     </servlet>
 </atlassian-plugin>
