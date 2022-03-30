@@ -3,11 +3,10 @@ package com.geneculling.javakata.impl;
 import com.geneculling.javakata.api.RequestHeaderParserBuilder;
 import com.google.gson.Gson;
 
-import java.util.Locale;
 
 public class RequestHeaderParserBuilderImpl implements RequestHeaderParserBuilder {
     private static final Gson GSON = new Gson();
-    private Locale locale;
+    private String language;
     private String ipAddress;
     private String software;
 
@@ -15,25 +14,25 @@ public class RequestHeaderParserBuilderImpl implements RequestHeaderParserBuilde
 
     }
 
-    public RequestHeaderParserBuilderImpl(Locale locale, String ipAddress, String software){
-        this.locale = locale;
+    public RequestHeaderParserBuilderImpl(String language, String ipAddress, String software){
+        this.language = language;
         this.ipAddress = ipAddress;
         this.software = software;
     }
 
     @Override
-    public RequestHeaderParserBuilder addLocale(Locale locale) {
-        return new RequestHeaderParserBuilderImpl(locale, this.ipAddress, this.software);
+    public RequestHeaderParserBuilder addLanguage(String language) {
+        return new RequestHeaderParserBuilderImpl(language, this.ipAddress, this.software);
     }
 
     @Override
     public RequestHeaderParserBuilder addIpAddress(String ipAddress) {
-        return new RequestHeaderParserBuilderImpl(this.locale, ipAddress, this.software);
+        return new RequestHeaderParserBuilderImpl(this.language, ipAddress, this.software);
     }
 
     @Override
     public RequestHeaderParserBuilder addSoftware(String software) {
-        return new RequestHeaderParserBuilderImpl(this.locale, this.ipAddress, software);
+        return new RequestHeaderParserBuilderImpl(this.language, this.ipAddress, software);
     }
 
     @Override
